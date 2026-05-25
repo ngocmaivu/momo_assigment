@@ -1,4 +1,4 @@
-package org.momo.Controller;
+package org.momo.controller;
 
 import org.momo.service.AuthService;
 import org.momo.model.Bill;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Main {
+public class ProjectController {
     private static final DateTimeFormatter F = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public static void main(String[] args) {
@@ -110,6 +110,16 @@ public class Main {
                     System.out.println("Your available balance: " + account.getBalance());
                     break;
                 case "LIST_BILL":
+                    System.out.println("\n================= BILL LIST =================");
+                    System.out.printf(
+                            "%-10s %-12s %-10s %-15s %-12s %-15s%n",
+                            "Bill No.",
+                            "Type",
+                            "Amount",
+                            "Due Date",
+                            "State",
+                            "Provider"
+                    );
                     billService.listBills().forEach(b ->
                             System.out.println(formatBillLine(b)));
                     break;
@@ -157,6 +167,16 @@ public class Main {
                         break;
                     }
                     long viewId = Long.parseLong(parts[1]);
+                    System.out.println("\n================= BILL DETAIL =================");
+                    System.out.printf(
+                            "%-10s %-12s %-10s %-15s %-12s %-15s%n",
+                            "Bill No.",
+                            "Type",
+                            "Amount",
+                            "Due Date",
+                            "State",
+                            "Provider"
+                    );
                     billService.findById(viewId).ifPresentOrElse(
                             bill -> System.out.println(formatBillLine(bill)),
                             () -> System.out.println("Bill not found: " + viewId));
@@ -174,6 +194,16 @@ public class Main {
                     }
                     break;
                 case "DUE_DATE":
+                    System.out.println("\n================= DUE DATE LIST =================");
+                    System.out.printf(
+                            "%-10s %-12s %-10s %-15s %-12s %-15s%n",
+                            "Bill No.",
+                            "Type",
+                            "Amount",
+                            "Due Date",
+                            "State",
+                            "Provider"
+                    );
                     billService.listUnpaidOrderedByDue().forEach(b2 -> System.out.println(formatBillLine(b2)));
                     break;
                 case "SCHEDULE":
@@ -191,6 +221,15 @@ public class Main {
                     }
                     break;
                 case "LIST_PAYMENT":
+                    System.out.println("\n================= PAYMENT HISTORY =================");
+                    System.out.printf(
+                            "%-15s %-10s %-15s %-12s %-10s%n",
+                            "Payment No.",
+                            "Amount",
+                            "Payment Date",
+                            "State",
+                            "Bill No."
+                    );
                     paymentService.listPayments().forEach(p -> System.out.println(formatPaymentLine(p)));
                     break;
                 case "SEARCH_BILL_BY_PROVIDER":
@@ -199,6 +238,16 @@ public class Main {
                         break;
                     }
                     String providerSearch = line.substring(line.indexOf(' ') + 1).trim();
+                    System.out.println("\n================= SEARCH RESULT =================");
+                    System.out.printf(
+                            "%-10s %-12s %-10s %-15s %-12s %-15s%n",
+                            "Bill No.",
+                            "Type",
+                            "Amount",
+                            "Due Date",
+                            "State",
+                            "Provider"
+                    );
                     billService.searchByProvider(providerSearch).forEach(b2 -> System.out.println(formatBillLine(b2)));
                     break;
                 case "SEARCH_BILL_BY_TYPE":
@@ -207,6 +256,16 @@ public class Main {
                         break;
                     }
                     String typeQuery = line.substring(line.indexOf(' ') + 1).trim();
+                    System.out.println("\n================= SEARCH RESULT =================");
+                    System.out.printf(
+                            "%-10s %-12s %-10s %-15s %-12s %-15s%n",
+                            "Bill No.",
+                            "Type",
+                            "Amount",
+                            "Due Date",
+                            "State",
+                            "Provider"
+                    );
                     billService.searchByType(typeQuery).forEach(b2 -> System.out.println(formatBillLine(b2)));
                     break;
                 default:
@@ -220,7 +279,7 @@ public class Main {
     }
 
     private static String formatBillLine(Bill b) {
-        return String.format("%d. %s %d %s %s %s",
+        return String.format("%-10s %-12s %-10s %-15s %-12s %-15s%n",
                 b.getId(),
                 b.getType(),
                 b.getAmount(),
@@ -230,7 +289,7 @@ public class Main {
     }
 
     private static String formatPaymentLine(Payment p) {
-        return String.format("%d. %d %s %s %d", p.getId(), p.getAmount(), p.getPaymentDate().format(F), p.getState(), p.getBillId());
+        return String.format("%-15s %-10s %-15s %-12s %-10s%n", p.getId(), p.getAmount(), p.getPaymentDate().format(F), p.getState(), p.getBillId());
     }
 
     private static void printHelp() {
