@@ -1,5 +1,11 @@
 # BillPay — README
 
+## Run project
+Follow the command prompts `mvn exec:java` in the console.
+
+## Tests
+- Unit tests are provided under `src/test`. Run tests with your test runner (use `mvn test` or your IDE).
+
 ## Overview
 BillPay is a small interactive Java command-line application that lets users register/login, manage bills and pay them. 
 Each registered user has a separate account balance. 
@@ -63,9 +69,6 @@ Payments may be scheduled and a basic transaction history is kept.
   - Log out current user and return to auth prompt.
 - `EXIT`
   - Quit the application immediately.
-
-## Tests
-- Unit tests are provided under `src/test`. Run tests with your test runner (your IDE).
 
 ## Example session
 1. `REGISTER momo 12345`

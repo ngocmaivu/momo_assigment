@@ -1,14 +1,17 @@
 package org.momo.service;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AccountServiceTest {
     private AccountService accountService;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     public void setUp() {
         accountService = new AccountService();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testDeposit() {
         accountService.deposit(100);
         org.junit.jupiter.api.Assertions.assertEquals(100, accountService.getBalance());
