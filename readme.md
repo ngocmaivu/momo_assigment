@@ -9,6 +9,7 @@ Payments may be scheduled and a basic transaction history is kept.
 ## General notes
 - Date format: `dd/MM/yyyy` (e.g. `25/05/2026`).
 - Bill ids are unique. Attempting to add a bill with an existing id will fail.
+- Please config your IDE to use UTF-8 encoding for source files and console output to properly display Vietnamese characters in bill providers.
 
 ## Authentication (required before accessing BillPay)
 - `REGISTER <username> <password>`
@@ -64,7 +65,7 @@ Payments may be scheduled and a basic transaction history is kept.
   - Quit the application immediately.
 
 ## Tests
-- Unit tests are provided under `src/test`. Run tests with your test runner (e.g. `mvn test` or your IDE).
+- Unit tests are provided under `src/test`. Run tests with your test runner (your IDE).
 
 ## Example session
 1. `REGISTER momo 12345`
