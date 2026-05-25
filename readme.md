@@ -1,7 +1,8 @@
 # BillPay — README
 
 ## Run project
-Follow the command prompts `mvn exec:java` in the console.
+1. Follow the command prompts `mvn exec:java` in the console.
+2. Use your IDE's run configuration to execute the `main` method.
 
 ## Tests
 - Unit tests are provided under `src/test`. Run tests with your test runner (use `mvn test` or your IDE).
