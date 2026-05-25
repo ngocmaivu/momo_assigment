@@ -7,7 +7,7 @@ public class Bill {
     private String type;
     private Long amount;
     private LocalDate dueDate;
-    private String state;
+    private String state; // "NOT_PAID", "PAID""
     private String provider;
 
     public Bill(String type, Long id, String provider, Long amount, LocalDate dueDate, String state) {

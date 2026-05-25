@@ -10,7 +10,7 @@ public class Payment {
     private final long billId;
     private final long amount;
     private LocalDate paymentDate;
-    private String state; // PENDING, PROCESSED, FAILED, CANCELLED
+    private String state; // PENDING, PROCESSED, FAILED
     private LocalDate scheduledOn;
 
     public Payment(long billId, long amount, LocalDate paymentDate, String state) {
