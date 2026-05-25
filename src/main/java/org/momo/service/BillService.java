@@ -1,13 +1,14 @@
 package org.momo.service;
 
 import org.momo.model.Bill;
+import org.momo.service.impl.BillServiceImpl;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
-public class BillService {
+public class BillService implements BillServiceImpl {
     private final Map<Long, Bill> bills = new ConcurrentHashMap<>();
 
     public void addBill(Bill bill) {

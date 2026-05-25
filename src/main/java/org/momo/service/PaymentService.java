@@ -2,12 +2,14 @@ package org.momo.service;
 
 import org.momo.model.Bill;
 import org.momo.model.Payment;
+import org.momo.service.impl.PaymentServiceImp;
 
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class PaymentService {
+public class PaymentService implements PaymentServiceImp {
+
     private final AccountService accountService;
     private final BillService billService;
     private final List<Payment> payments = Collections.synchronizedList(new ArrayList<>());

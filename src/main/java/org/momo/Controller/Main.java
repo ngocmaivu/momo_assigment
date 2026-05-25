@@ -1,4 +1,4 @@
-package org.momo;
+package org.momo.Controller;
 
 import org.momo.service.AuthService;
 import org.momo.model.Bill;
@@ -22,11 +22,6 @@ public class Main {
         AuthService auth = new AuthService();
         BillService billService = new BillService();
         AccountService account = new AccountService();
-
-        // preload some bills (global)
-        billService.addBill(new Bill("ELECTRIC", 1L, "EVN HCMC", 200_000L, LocalDate.parse("25/10/2020", F), "NOT_PAID"));
-        billService.addBill(new Bill("WATER", 2L, "SAVACO HCMC", 175_000L, LocalDate.parse("30/10/2020", F), "NOT_PAID"));
-        billService.addBill(new Bill("INTERNET", 3L, "VNPT", 800_000L, LocalDate.parse("30/11/2020", F), "NOT_PAID"));
 
         Scanner sc = new Scanner(System.in);
         // Authentication loop

@@ -1,13 +1,14 @@
 package org.momo.service;
 
 import org.momo.model.User;
+import org.momo.service.impl.AuthServiceImpl;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class AuthService {
+public class AuthService implements AuthServiceImpl {
     private final Map<String, User> users = Collections.synchronizedMap(new HashMap<>());
     private volatile User currentUser = null;
 

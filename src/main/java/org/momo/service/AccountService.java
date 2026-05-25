@@ -1,6 +1,8 @@
 package org.momo.service;
 
-public class AccountService {
+import org.momo.service.impl.AccountServiceImpl;
+
+public class AccountService implements AccountServiceImpl {
     private long balance = 0;
 
     public synchronized void deposit(long amount) {
