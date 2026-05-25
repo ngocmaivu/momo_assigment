@@ -48,7 +48,7 @@ public class PaymentServiceTest {
     }
 
     @Test
-    public void insufficientFundsForMultiple_isAtomic() {
+    public void insufficientFundsForMultipleIsAtomic() {
         account.deposit(250);
         // trying to pay both 10 and 11 needs 300, so should fail and not change anything
         boolean ok = paymentService.payBills(List.of(10L, 11L));
@@ -84,7 +84,7 @@ public class PaymentServiceTest {
     }
 
     @Test
-    public void processDueScheduledPayments_withSufficientFunds_processesAndMarksPaid() {
+    public void processDueScheduledPaymentsWithSufficientFundsProcessesAndMarksPaid() {
         LocalDate due = LocalDate.now().minusDays(1); // already due
         boolean scheduled = paymentService.schedulePayment(11L, due);
         assertTrue(scheduled);
@@ -107,7 +107,7 @@ public class PaymentServiceTest {
     }
 
     @Test
-    public void processDueScheduledPayments_insufficientFunds_keepsPending() {
+    public void processDueScheduledPaymentsInsufficientFundsKeepsPending() {
         LocalDate due = LocalDate.now().minusDays(1); // already due
         boolean scheduled = paymentService.schedulePayment(11L, due);
         assertTrue(scheduled);

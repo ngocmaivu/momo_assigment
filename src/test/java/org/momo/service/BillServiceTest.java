@@ -99,7 +99,7 @@ public class BillServiceTest {
     }
 
     @Test
-    public void updateBillUpdatesFields_andReturnsFalseIfMissing() {
+    public void updateBillUpdatesFieldsAndReturnsFalseIfMissing() {
         LocalDate newDue = LocalDate.parse("31/12/2025", F);
         boolean ok = billService.updateBill(2L, "WATER_NEW", "SAVACO_UPDATED", 180_000L, newDue);
         assertTrue(ok);
